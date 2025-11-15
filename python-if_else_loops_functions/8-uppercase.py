@@ -1,5 +1,12 @@
 #!/usr/bin/python3
 def uppercase(str):
-    for i in range(len):
+    result = ""
+    for i in range(len(str)):
         if ord(str[i]) >= 97:
-            str[i] = str[i].switchcase()
+            result += str[i].swapcase()
+        else:
+            result += str[i]
+    print(result)
+
+uppercase("best")
+uppercase("Best School 98 Battery street")
