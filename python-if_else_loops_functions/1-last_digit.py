@@ -3,10 +3,10 @@ import random
 number = random.randint(-10000, 10000)
 
 if number > 0:
-    lastDig = number%10
+    lastDig = number % 10
 else:
     lastDig = -int(str(number)[-1])
-    
+
 if lastDig > 5:
     case = "and is greater than 5"
 elif lastDig == 0:
