@@ -6,7 +6,7 @@ for i in range(1, 101):
     elif i % 5 == 0 and i != 100:
         print("Buzz", end=" ")
     elif i == 100:
-        print("Buzz")
+        print("Buzz ")
     elif i % 3 == 0:
         print("Fizz", end=" ")
     else:
