@@ -8,7 +8,7 @@ else:
     lastDig = -int(str(number)[-1])
     
 if lastDig > 5:
-    case = "and is greater than 5 not 0"
+    case = "and is greater than 5"
 elif lastDig == 0:
     case = "and is 0"
 else:
