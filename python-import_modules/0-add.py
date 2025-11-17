@@ -3,4 +3,4 @@ from add_0.py import add
 a = 1
 b = 1
 if __name__ == "__main__":
-    print(add(a, b))
+    print("{}".format(add(a, b)))
