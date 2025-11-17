@@ -2,4 +2,5 @@
 from add_0.py import add
 a = 1
 b = 1
-print(add(a, b))
+if __name__ == "__main__":
+    print(add(a, b))
