@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+git config --global user.name 'Nihat Mammadzada'
+git config --global user.email 'nihat.mmzade@gmail.com'
+git add .
+git commit -m 'n'
+git push
