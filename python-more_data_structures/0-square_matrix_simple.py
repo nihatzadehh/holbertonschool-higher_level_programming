@@ -6,5 +6,4 @@ def square_matrix_simple(matrix=[]):
         for j in i:
             arrayininside.append(j**2)
         lastmatrix.append(arrayininside)
-        
     return lastmatrix
