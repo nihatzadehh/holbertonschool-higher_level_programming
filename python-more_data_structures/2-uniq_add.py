@@ -8,5 +8,4 @@ def uniq_add(my_list=[]):
         else:
             a.append(i)
             s += i
-            
     return s
