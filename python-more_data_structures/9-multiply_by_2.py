@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 def multiply_by_2(b_dictionary):
-    keys = list(b_dictionary.keys())
+    c = b_dictionary
+    keys = list(c.keys())
     for i in keys:
-        b_dictionary[i] = b_dictionary[i]*2
-    return b_dictionary
+        c[i] = c[i]*2
+    return c
