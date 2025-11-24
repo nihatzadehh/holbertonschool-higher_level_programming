@@ -3,5 +3,5 @@
 
 
 class Rectangle():
-    """This is mine also""""
+    """This is mine also"""
     pass
