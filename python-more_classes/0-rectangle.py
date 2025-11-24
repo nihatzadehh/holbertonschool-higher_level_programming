@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Salam . """"
+"""This is my doc""""
+
+
 class Rectangle():
-    """Salam . """"
+    """This is mine also""""
     pass
