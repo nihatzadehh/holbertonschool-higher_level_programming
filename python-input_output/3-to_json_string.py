@@ -3,6 +3,10 @@
 
 
 import json
+
+
 def to_json_string(my_obj):
     '''Just a doc'''
+
+
     return json.dumps(my_obj)
