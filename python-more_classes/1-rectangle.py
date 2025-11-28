@@ -3,7 +3,6 @@
 ''' Just a documentation '''
 
 
-
 class Rectangle:
     ''' Just a documentation '''
 
