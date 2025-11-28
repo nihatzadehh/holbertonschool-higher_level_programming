@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-'''Document of the module'''
+'''This code add text to file'''
 
 
-def write_file(filename="", text=""):
-    '''Document of func'''
-    with open(filename, 'wa', encoding='utf-8') as f:
+def write_file(file, text):
+    '''Practice with open function'''
+
+    with open(file, 'w') as f:
+
         f.write(text)
-        return len(text)
+
+    return len(text)
