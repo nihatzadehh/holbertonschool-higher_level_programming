@@ -1,5 +1,7 @@
+"""This
+is my docummentation
+"""
 #!/usr/bin/python3
-"""This is just a docum."""
 
 
 
@@ -31,4 +33,4 @@ if len(sys.argv) > 1:
     finaldata = currentdata + sys.argv[1:]
     save_to_json_file(finaldata, 'add_item.json')
 else:
-    save_to_json_file(currentdata)
+    save_to_json_file(currentdata, 'add_item.json')
