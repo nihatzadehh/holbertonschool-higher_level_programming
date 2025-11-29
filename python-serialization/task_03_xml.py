@@ -1,30 +1,24 @@
-#!/usr/bin/env python3
-"""Just my doccument"""
+#!/usr/bin/python3
+"""
+Serialize and deserialize Python dictionaries to and from XML.
+"""
 
 
-import csv
-import json
+import xml.etree.ElementTree as ET
 
 
-def convert_csv_to_json(csv_filename):
-    """
-    Converts a CSV file to JSON and writes the result to data.json.
-    Returns True on success, False on failure.
-    """
-    try:
-        data_list = []
+def serialize_to_xml(dictionary, filename):
+    """Serialize a Python dictionary to an XML file."""
+    root = ET.Element("data")
+    for key, value in dictionary.items():
+        child = ET.SubElement(root, key)
+        child.text = str(value)
+    tree = ET.ElementTree(root)
+    tree.write(filename)
 
-        # Open and read the CSV file
-        with open(csv_filename, "r", encoding="utf-8") as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                data_list.append(row)
 
-        # Write JSON data to data.json
-        with open("data.json", "w", encoding="utf-8") as jsonfile:
-            json.dump(data_list, jsonfile, indent=4)
-
-        return True
-
-    except Exception:
-        return False
+def deserialize_from_xml(filename):
+    """Deserialize an XML file to a Python dictionary."""
+    tree = ET.parse(filename)
+    root = tree.getroot()
+    return {child.tag: child.text for child in root}
