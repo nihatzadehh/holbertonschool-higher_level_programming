@@ -4,11 +4,12 @@ is my docummentation
 """
 
 
-
-import json, sys
+import json
+import sys
 
 def load_from_json_file(filename):
     """Just a doc 2"""
+
 
     with open(filename, "r") as f:
         data = f.read()
@@ -19,8 +20,8 @@ def load_from_json_file(filename):
 
 
 def save_to_json_file(my_obj, filename):
-
     '''Just a doc'''
+
 
     with open(filename, 'w') as f:
         f.write(json.dumps(my_obj))
