@@ -1,7 +1,7 @@
+#!/usr/bin/python3
 """This
 is my docummentation
 """
-#!/usr/bin/python3
 
 
 
