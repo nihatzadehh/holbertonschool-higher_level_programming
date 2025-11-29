@@ -23,6 +23,6 @@ class Student:
             return dictwillreturn
 
     def reload_from_json(self, json):
-        self.first_name = json.get('first_name')
-        self.last_name = json.get('last_name')
-        self.age = json.get('age')
+        self.first_name = json.get('first_name', '')
+        self.last_name = json.get('last_name', '')
+        self.age = json.get('age', int())
