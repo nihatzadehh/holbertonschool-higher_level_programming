@@ -13,7 +13,7 @@ class Student:
     def to_json(self, attrs=None):
         if not attrs:
             return self.__dict__
-        if len(attr) == 0:
+        if len(attrs) == 0:
             return ''
         else:
             dictwillreturn = {}
