@@ -3,14 +3,12 @@
 is my docummentation
 """
 
-
 import json
 import sys
 
+
 def load_from_json_file(filename):
     """Just a doc 2"""
-
-
     with open(filename, "r") as f:
         data = f.read()
         if not data:
@@ -20,14 +18,14 @@ def load_from_json_file(filename):
 
 
 def save_to_json_file(my_obj, filename):
-    '''Just a doc'''
-
-
+    """Just a doc"""
     with open(filename, 'w') as f:
         f.write(json.dumps(my_obj))
 
+
 file = open('add_item.json', 'a')
 file.close()
+
 currentdata = load_from_json_file('add_item.json')
 
 if len(sys.argv) > 1:
