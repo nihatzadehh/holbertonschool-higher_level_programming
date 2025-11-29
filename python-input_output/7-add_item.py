@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+'''Just a doc'''
+
+
 
 import json, sys
-
 
 def load_from_json_file(filename):
     """Just a doc 2"""
