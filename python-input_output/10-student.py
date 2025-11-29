@@ -14,7 +14,7 @@ class Student:
         if not attrs:
             return self.__dict__
         if len(attrs) == 0:
-            return ''
+            return {}
         else:
             dictwillreturn = {}
             for i in attrs:
