@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-"""This is my doc"""
+"""Defines a class Rectangle."""
 
 
-class Rectangle():
-    """This is mine also"""
+class Rectangle:
+    """Empty class that defines a rectangle."""
+
     pass
