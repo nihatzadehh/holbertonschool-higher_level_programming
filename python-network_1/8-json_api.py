@@ -20,5 +20,5 @@ if __name__ == '__main__':
         if not response_json:
             print('No result')
         else:
-            print(response_json['id'], response_json['name'])
+            print(response_json.get('id'), response_json.get('name'))
 
