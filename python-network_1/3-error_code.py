@@ -10,6 +10,6 @@ if __name__ == '__main__':
     url = sys.argv[1]
     with urllib.request.urlopen(url) as r:
         try:
-            print(r.read())
+            print(r.read().decode('utf-8'))
         except:
             print(f'Error code: {r.satus}')
