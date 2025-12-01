@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is my doc"""
+"""This is my doccumentation"""
 
 
 import sys
