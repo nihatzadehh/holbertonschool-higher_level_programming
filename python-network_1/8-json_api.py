@@ -8,12 +8,15 @@ import sys
 if __name__ == '__main__':
     try:
         data = {'q': sys.argv[1]}
-    except:
+    except IndexError:
         data = {'q': ''}
     response = requests.post('http://0.0.0.0:5000/search_user', data=data)
-    if response is None:
+    try:
+	    responsejs = response.json()
+        if not responsejs:
+            print('No result')
+        else:
+            print(response.text)
+    except ValueError:
         print('Not a valid JSON')
-    elif len(response.text) == 0:
-        print('No result')
-    else:
-        print(response.text)
+
