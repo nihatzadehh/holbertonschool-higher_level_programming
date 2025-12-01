@@ -13,7 +13,7 @@ if __name__ == '__main__':
     response = requests.post('http://0.0.0.0:5000/search_user', data=data)
     if response is None:
         print('Not a valid JSON')
-    elif len(response) == 0:
+    elif len(response.text) == 0:
         print('No result')
     else:
         print(response.text)
