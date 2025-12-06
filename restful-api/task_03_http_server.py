@@ -27,9 +27,9 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data).encode('utf-8'))
         elif self.path == '/status':
             self.send_response(200)
-            self.send_header('Content-Type', 'application/json')
+            self.send_header('Content-Type', 'text')
             self.end_headers()
-            self.wfile.write(b'')
+            self.wfile.write(b'OK')
         else:
             self.send_response(404)
             self.send_header('Content-Type', 'text')
