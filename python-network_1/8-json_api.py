@@ -9,16 +9,11 @@ if __name__ == '__main__':
         data = {'q': sys.argv[1]}
     except IndexError:
         data = {'q': ''}
-
-    response = requests.post('http://0.0.0.0:5000/search_user', data=data)
-
-    try:
-        response_json = response.json()
-    except ValueError:
-        print('Not a valid JSON')
+    url = 'http://0.0.0.0:5000/search_user'
+    response = requests.post(url, data=data)
+    if response.json():
+        data = response.json()
+        print(data['id'], data['name'])
     else:
-        if not response_json:
-            print('No result')
-        else:
-            print(response_json.get('id'), response_json.get('name'))
+        print('No result')
 
