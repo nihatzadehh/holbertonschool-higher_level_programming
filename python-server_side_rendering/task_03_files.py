@@ -13,83 +13,75 @@ def home():
 def about():
     return render_template('about.html')
 
+
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
 
 @app.route('/items')
 def items():
     try:
         with open('items.json', "r") as it:
             data = json.load(it)
-        items = data["items"] if data["items"] else []
+            items = data.get("items", [])
     except:
         items = []
-    
     return render_template('items.html', items=items)
+
 
 @app.route('/products')
 def products():
-    # First get the argument from the url link
     source = request.args.get('source')
     table_heads = []
     table_items = []
     error_message = None
-    
-    # Burda deyesen match case islemir. If else ile yazmaq lazimdir !!!!
-    #check if it is json 
-    match source:
-        case "json":
-            try:
-                with open('./products.json', "r") as prod_json:
-                    data = json.load(prod_json)
+
+    if source == "json":
+        try:
+            with open('products.json', 'r') as f:
+                data = json.load(f)
                 table_heads = data[0].keys()
                 table_items = data
-            except FileNotFoundError:
-                print("JSON file Not Found")
+        except:
+            return "Error loading JSON file"
 
-        #check if it is csv  
-        case'csv':
-            try:
-                data = []
-                with open('./products.csv', 'r') as p_csv:
-                    data_csv = csv.DictReader(p_csv)
-                    for i in data_csv:
-                        data.append(i)
-                table_heads = data[0].keys()
+    elif source == "csv":
+        try:
+            data = []
+            with open('products.csv', 'r') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    data.append(row)
+                table_heads = data[0].keys() if data else []
                 table_items = data
-            except FileNotFoundError:
-                print("CSV file Not Found")
-                
-        # Handle invalid format
-        case _:
-            return "Wrong source"
+        except:
+            return "Error loading CSV file"
 
-    
-    
+    else:
+        return "Wrong source"
+
     try:
-        id = request.args.get('id')
-        sel_item = None
-        for i in table_items:
-            if int(i.get('id')) == int(id):
-                sel_item = i
-                break
-        if not (sel_item is None):
-            table_items = [sel_item]
-        else:
-            error_message = 'Product not found'
-    except Exception:
+        prod_id = request.args.get('id')
+        if prod_id:
+            selected = None
+            for item in table_items:
+                if int(item.get('id')) == int(prod_id):
+                    selected = item
+                    break
+            if selected:
+                table_items = [selected]
+            else:
+                error_message = "Product not found"
+    except:
         pass
-        
-    
+
     return render_template(
         'product_display.html',
-        table_heads=list(table_heads)[1:] or [],
-        table_items=table_items or [{}],
-        error_message=error_message or None
+        table_heads=list(table_heads)[1:] if table_heads else [],
+        table_items=table_items,
+        error_message=error_message
     )
-
-
 
 
 if __name__ == '__main__':
