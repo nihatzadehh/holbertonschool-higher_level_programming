@@ -18,5 +18,5 @@ if __name__ == '__main__':
             print(f'[{id}]', data['name'])
         else:
             print('No result')
-    except JSONDecodeError:
+    except RequestsJSONDecodeError:
         print('Not a valid JSON')
