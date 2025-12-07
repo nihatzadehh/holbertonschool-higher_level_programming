@@ -11,10 +11,9 @@ if __name__ == '__main__':
         data = {'q': ''}
     url = 'http://0.0.0.0:5000/search_user'
     response = requests.post(url, data=data)
-    if response.json():
+    try:
         data = response.json()
         id = data.get('id')
         print(f'[{id}]', data['name'])
-    else:
+    except JSONDecodeError:
         print('No result')
-
