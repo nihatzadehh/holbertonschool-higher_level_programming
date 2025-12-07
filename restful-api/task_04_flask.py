@@ -33,6 +33,7 @@ def finduser(username):
 
 @app.route('/add_user', methods=['GET', 'POST'])
 def add_user():
+    global users
     try:
         data = request.get_json()
     except Exception:
