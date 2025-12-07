@@ -41,13 +41,13 @@ def add_user():
     un = data.get('username')
     if not un:
         return jsonify({"error": "Username is required"}), 400
-    elif users[un]:
+    elif un in users:
         return jsonify({"error": "Username already exists"}), 409
     name = data.get('name')
     age = data.get('age')
     city = data.get('city')
     users[un] = {'username': un, 'name': name, 'age': age, 'city': city}
-    confmes = {'message': 'User added', 'user': {users[un]}}
+    confmes = {'message': 'User added', 'user': users[un]}
     return jsonify(confmes), 201
 
 if __name__ == '__main__':
