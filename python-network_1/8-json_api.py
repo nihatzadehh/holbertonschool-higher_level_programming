@@ -13,7 +13,8 @@ if __name__ == '__main__':
     response = requests.post(url, data=data)
     if response.json():
         data = response.json()
-        print(f'[{data['id']}]', data['name'])
+        id = data.get('id')
+        print(f'[{id}]', data['name'])
     else:
         print('No result')
 
