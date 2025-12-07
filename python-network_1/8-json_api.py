@@ -13,7 +13,10 @@ if __name__ == '__main__':
     response = requests.post(url, data=data)
     try:
         data = response.json()
-        id = data.get('id')
-        print(f'[{id}]', data['name'])
+        if data:
+            id = data.get('id')
+            print(f'[{id}]', data['name'])
+        else:
+            print('No result')
     except JSONDecodeError:
-        print('No result')
+        print('Not a valid JSON')
