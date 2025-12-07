@@ -35,7 +35,7 @@ def finduser(username):
 def add_user():
     global users
     try:
-        data = request.get_json()
+        data = request.get_json(force=True)
     except Exception:
         return jsonify({"error": "Invalid JSON"}), 400
     un = data.get('username')
